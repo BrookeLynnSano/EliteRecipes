@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (recipes) { %>
+        <form class="add-recipe-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Name">recipe id</label>
+                    <input type="text" class="form-control" name="Name" id="Name" value="<%= recipes.Name %>" required disabled title="Recipe ID cannot be edited.">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="title">Recipe Title</label>
+                    <input type="text" class="form-control" name="title" id="title" value="<%= recipes.Value.title %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ingredients">ingredients</label>
+                    <input type="text" class="form-control" name="ingredients" id="ingredients" value="<%= recipes.Value.ingredients %>" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success float-right">Update Recipe</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Recipe Not Found. Go <a href="/add">here</a> to add recipes.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
