@@ -21,6 +21,11 @@ body h1, h2, h3, h4{
     color: #A9B4C2;
  }
 
+ .img-fluid {
+    height:100% !important;
+    width:300px !important;
+ }
+
 .nav a {
     color: white;
 }
