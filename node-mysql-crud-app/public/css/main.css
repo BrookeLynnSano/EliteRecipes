@@ -1,0 +1,56 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    color: #1C2321;
+    background-color: #EEF1EF;
+    margin-bottom: 40px;
+}
+
+body h1, h2, h3, h4{
+  color: #5E6572
+}
+
+ body a {
+    color: #7D98A1;
+ }
+
+ body a:hover {
+    color: #A9B4C2;
+ }
+
+.nav a {
+    color: white;
+}
+
+.nav a:hover {
+    color: #5E6572;
+}
+
+.add-recipe-form {
+    margin-top: 100px;
+}
+
+.navbar {
+    background-color: #7D98A1 !important;
+    color: #EEF1EF !important;
+}
+
+.btn {
+    background-color: #5E6572 !important;
+}
+
+.jumbotron {
+    background-color: #D3D3D3;
+    border-radius: 0px !important;
+}
+
+.jumbotron h1 {
+    color: #465366
+}
+
+.jumbotron .btn {
+    background-color: #7D98A1 !important;
+}

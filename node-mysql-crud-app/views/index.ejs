@@ -1,4 +1,45 @@
 <% include partials/header.ejs %>
+<% include partials/navbar.ejs %>
+
+ <main role="main">
+        <section class="jumbotron mt-4" id="search">
+            <div class="container text-center">
+                <h1 class="display-4 ">Elite Recipes.<br>The future of cooking.</h1>
+                <div class="row">
+                    <div class="col m-2">
+                         <img class="img-fluid rounded-circle" src="images/Family.jpeg" alt="placeholder" />
+
+                    </div>
+                    <div class="col m-2">
+                        <img class="img-fluid rounded-circle" src="images/Chefs.jpeg" alt="placeholder" />
+                    </div>
+                    <div class="col m-2">
+                        <img class="img-fluid rounded-circle" src="images/Kitchen.jpeg" alt="placeholder" />
+
+                    </div>
+                </div>
+                <p class="lead text-center">
+                    Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!
+                </p>
+                
+                <!--<form method="get" action="/signup"> 
+                    <input class="topnav" type="text" placeholder="Search...">
+                </form> -->
+                
+                <div class="topnav">
+                    
+                    <input type="text" placeholder="Ingredients...">
+                </div>
+                
+            </div>
+                <br>
+                <br>
+                <p align="center"> Be sure to add new found recipes to your personal cookbook by signing in! Don't have an account? Make one today, free of charge!</p>
+                <p align="center"> Simply click <a href="userentry.html">this link</a> to make an account! </p>
+        </section>
+        
+
+<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
     <div class="table-wrapper">
         <% if (recipes > 0) {%>
             <table class="table table-hovered">
@@ -30,24 +71,26 @@
         <% } %>
 <!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
 
-<!-- carousel -->
+
+
+        <!-- carousel -->
     </div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="https://ronefoxync.files.wordpress.com/2015/11/fd005255.jpg?quality=80&strip=all" alt="First slide">
+      <img style="width:200px;height:400px;" class="d-block w-100" src="images/Turkey.jpeg" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
             <h4 style="color:red;background-color:green" >Classic Holiday Turkey </h4>
         </div>
     </div>
     <div class="carousel-item">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="https://www.nueskes.com/assets/1/20/DimLarge/550_Applewood_Smoked_Spiral_Sliced_Boneless_Ham_900x900.jpg?1127" alt="Second slide">
+      <img style="width:200px;height:400px;" class="d-block w-100" src="images/SlicedHam.jpeg" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
             <h4 style="color:red;background-color:green">Smoked Honey Ham</h4>
         </div>
     </div>
     <div class="carousel-item">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFda6sGfYev86yAja1nuUY1vzlb-Cy44NDsmXy077xHTWRaE8G" alt="Third slide">
+      <img style="width:200px;height:400px;" class="d-block w-100" src="images/ChristmasCookies.jpeg" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
             <h4 style="color:red;background-color:green">Christmas Sugar Cookies </h4>
         </div>
@@ -62,47 +105,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
- <main role="main">
-        <section class="jumbotron mt-4" id="search">
-            <div class="container text-center">
-                <h1 class="display-4 ">Elite Recipes. The future of cooking. </h1>
-                <div class="row">
-                    <div class="col m-2">
-                         <img class="img-fluid rounded-circle" src="https://img.rezdy.com/PRODUCT_IMAGE/26227/5dd9a8bef13c4feea0d9d969977bce48FAMILY_COOKING_CLASS_lg.jpg" alt="placeholder" />
-
-                    </div>
-                    <div class="col m-2">
-                        <img class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnx2un8U747M9fAB-bMGni2EQvSrEUdkWXtbRzuzENDvI3ucO7yw" alt="placeholder" />
-                    </div>
-                    <div class="col m-2">
-                        <img class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjsPYf3ebCeRVMOiG_oknk_kJVUn90TSPEPGYNZ1FTquwRHw0n" alt="placeholder" />
-
-                    </div>
-                </div>
-                <p class="lead text-center">
-                    Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!
-                </p>
-                
-                <!--<form method="get" action="/signup"> 
-                    <input class="topnav" type="text" placeholder="Search...">
-                </form> -->
-                
-                <div class="topnav">
-                    
-                    <input type="text" placeholder="Ingredients...">
-                </div>
-                
-            </div>
-                <br>
-                <br>
-                <p align="center"> Be sure to add new found recipes to your personal cookbook by signing in! Don't have an account? Make one today, free of charge!</p>
-                <p align="center"> Simply click <a href="userentry.html">this link</a> to make an account! </p>
-        </section>
-        
             
                 
-        
         
         <section class="mb-4" id="about">
             <div class="container">
@@ -127,19 +131,19 @@
             <h1>Meet the Staff</h1>
             <hr>
             <h4>Michael Ryan</h4>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfpzMLY3R1Z-IWl0yflrFZ-JZKdY2AxBFrCaNWxGFrDQ-Qiyrf" alt="placeholder" />                        
+            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/Michael.jpeg" alt="placeholder" />                        
             <p>
                 Michael is a senior at Florida state from Somers, Connecticut. Favorite recipe: Butternut Squash Soup with Crisp Pancetta.
             </p>
             <hr>
             <h4>Haley Little</h4>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="data:image/jpeg;base64,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" alt="placeholder" />
+            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/Haley.jpeg" alt="placeholder" />
             <p>
                 Haley is a senior at Florida state from Montreal, Canada.  Favorite recipe: Awesome slow cooker Pot Roast. 
             </p>
             <hr>
             <h4>Brooklyn Siracusano </h2>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNDTMT6PpbiV3NsSQqwl8Gg0tbBc_IlzSA4bbaoQiuPo-zDcqd" alt="placeholder" />                        
+            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/BrookeLynn.jpeg" alt="placeholder" />                        
             <p>
             Brooklyn is a senior at Florida state from Orlando, Florida. Favorite recipe: Slow cooker chicken and dumplings. 
             </p>
