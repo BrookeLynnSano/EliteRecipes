@@ -1,45 +1,60 @@
 <% include partials/header.ejs %>
 <% include partials/navbar.ejs %>
 
- <main role="main">
-        <section class="jumbotron mt-4" id="search">
-            <div class="container text-center">
-                <h1 class="display-4 ">Elite Recipes.<br>The future of cooking.</h1>
-                <div class="row">
-                    <div class="col m-2">
-                         <img class="img-fluid rounded-circle" src="images/Family.jpeg" alt="placeholder" />
+<main role="main">
 
-                    </div>
-                    <div class="col m-2">
-                        <img class="img-fluid rounded-circle" src="images/Chefs.jpeg" alt="placeholder" />
-                    </div>
-                    <div class="col m-2">
-                        <img class="img-fluid rounded-circle" src="images/Kitchen.jpeg" alt="placeholder" />
+    <!-- Jumbotron -->
+    <section class="jumbotron mt-4" id="search">
+        <div class="container text-center">
 
-                    </div>
+            <h1 class="display-4">Elite Recipes.<br>The future of cooking.</h1>
+
+            <div class="row">
+                <div class="col m-2">
+                   <img class="img-fluid rounded-circle" src="images/Family.jpeg" alt="placeholder" />
                 </div>
-                <p class="lead text-center">
-                    Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!
-                </p>
-                
-                <!--<form method="get" action="/signup"> 
-                    <input class="topnav" type="text" placeholder="Search...">
-                </form> -->
-                
-                <div class="topnav">
-                    
-                    <input type="text" placeholder="Ingredients...">
+
+                <div class="col m-2">
+                  <img class="img-fluid rounded-circle" src="images/Chefs.jpeg" alt="placeholder" />
                 </div>
-                
+
+                <div class="col m-2">
+                    <img class="img-fluid rounded-circle" src="images/Kitchen.jpeg" alt="placeholder" />
+                </div>
             </div>
-                <br>
-                <br>
-                <p align="center"> Be sure to add new found recipes to your personal cookbook by signing in! Don't have an account? Make one today, free of charge!</p>
-                <p align="center"> Simply click <a href="userentry.html">this link</a> to make an account! </p>
-        </section>
+
+            <hr>
+            <p class="lead text-center">Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!</p>
+                
+            <!--<form method="get" action="/signup"> 
+                <input class="topnav" type="text" placeholder="Search...">
+            </form> -->
+                
+            <div class="topnav">
+                <input type="text" placeholder="Ingredients...">
+            </div>
+                
+            <br>
+            <hr>
+ 
+            <p class="lead text-center"> Be sure to add new found recipes to your personal cookbook by signing in!<br>Don't have an account? Make one today, free of charge!</p>
+
+            <div class="row justify-content-center">
+                <form method="get" action="/signup">
+                        <button class="btn btn-lg btn-secondary">Sign Up</button>
+                </form>
+                <form method="get" action="/signin">
+                        <button class="btn btn-lg btn-secondary">Sign In</button>
+                </form>
+            </div>
+
+        </div>
+        <!-- End Container -->
+    </section>
+    <!-- End Jumbotron -->
         
 
-<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
+    <!-- DONT CHANGE BELOW CODE YET, The above code displays a table of recipes -->
     <div class="table-wrapper">
         <% if (recipes > 0) {%>
             <table class="table table-hovered">
@@ -69,92 +84,116 @@
        <% } else { %>
             <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
         <% } %>
-<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
+    </div>
+    <!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
 
 
 
-        <!-- carousel -->
-    </div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="images/Turkey.jpeg" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h4 style="color:red;background-color:green" >Classic Holiday Turkey </h4>
-        </div>
-    </div>
-    <div class="carousel-item">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="images/SlicedHam.jpeg" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h4 style="color:red;background-color:green">Smoked Honey Ham</h4>
-        </div>
-    </div>
-    <div class="carousel-item">
-      <img style="width:200px;height:400px;" class="d-block w-100" src="images/ChristmasCookies.jpeg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h4 style="color:red;background-color:green">Christmas Sugar Cookies </h4>
-        </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-            
-                
-        
-        <section class="mb-4" id="about">
-            <div class="container">
-                <h1>About Us</h1>
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            The average person would rather go out to eat than try to make something for themselves because they claim they “don’t know how to cook.” While this may be true in some cases, the reality of the situation is that most people can cook, they just don’t know what to cook. That is where Elite Recipes by ToonSquad becomes useful. Users will be able to search for a recipe either by name, or by some of the ingredients they have or are hungry for.  Everytime you visit Elite Recipes, you will see suggested seasonal dishes to cook based on time of year. We also provide a section on each recipe for other users who previously cooked the dish to add tips and comments so it will turn out the best way possible.                       
+    <!-- Carousel -->
+    <div class="container">
 
-                           </p>
-                           
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid my-2" src="https://hugtampabay.org/wp-content/uploads/2018/02/healthy-cooking-classes-in-Canada.jpg" alt="placeholder" />
+        <div id="carouselFood" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img style="height=200px;width=200px;" class="d-block w-100" src="images/Turkey.jpeg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color:#EEF1EF;background-color:#5E6572">Classic Holiday Turkey </h4>
                     </div>
                 </div>
-                
-                
-                
-            <hr>
-            <section class="mb-4" id="staff">
-            <h1>Meet the Staff</h1>
-            <hr>
-            <h4>Michael Ryan</h4>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/Michael.jpeg" alt="placeholder" />                        
-            <p>
-                Michael is a senior at Florida state from Somers, Connecticut. Favorite recipe: Butternut Squash Soup with Crisp Pancetta.
-            </p>
-            <hr>
-            <h4>Haley Little</h4>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/Haley.jpeg" alt="placeholder" />
-            <p>
-                Haley is a senior at Florida state from Montreal, Canada.  Favorite recipe: Awesome slow cooker Pot Roast. 
-            </p>
-            <hr>
-            <h4>Brooklyn Siracusano </h2>
-            <img style="width:200px;height:200px;" class="img-fluid rounded-circle" src="images/BrookeLynn.jpeg" alt="placeholder" />                        
-            <p>
-            Brooklyn is a senior at Florida state from Orlando, Florida. Favorite recipe: Slow cooker chicken and dumplings. 
-            </p>
-            <hr>
-        </div>
-        
-        </section>
-        
-        
-    </main>
 
-</div>
-</body>
-</html>
+                <div class="carousel-item">
+                    <img style="width=200px;" class="d-block w-100" src="images/SlicedHam.jpeg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color:#EEF1EF;background-color:#5E6572">Smoked Honey Ham</h4>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img style="width=200px;" class="d-block w-100" src="images/ChristmasCookies.jpeg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color:#EEF1EF;background-color:#5E6572">Christmas Sugar Cookies </h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselFood" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#carouselFood" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- End Carousel -->
+    </div>
+    <!-- End Container -->       
+                
+    <!-- About -->   
+        <section class="mb-4" id="about">
+            <div class="container">
+
+                <br><br>
+                <h1 class="display-4">About Us</h1>
+                <hr>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-justify">The average person would rather go out to eat than try to make something for themselves because they claim they “don’t know how to cook.” While this may be true in some cases, the reality of the situation is that most people can cook, they just don’t know what to cook. That is where Elite Recipes by ToonSquad becomes useful. Users will be able to search for a recipe either by name, or by some of the ingredients they have or are hungry for.  Everytime you visit Elite Recipes, you will see suggested seasonal dishes to cook based on time of year. We also provide a section on each recipe for other users who previously cooked the dish to add tips and comments so it will turn out the best way possible.</p>
+                        </div>
+
+                        <div class="col">
+                            <img class="img-fluid my-2" src="images/Cooking.jpeg" alt="placeholder" />
+                        </div>
+                    </div>
+                <br><br>
+
+                <h1 class="display-4">Meet the Staff</h1>
+
+                <hr>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <img class="img-fluid rounded-circle" src="images/Michael.jpeg" alt="placeholder" /> 
+                        </div>
+
+                        <div class="col align-self-center">
+                            <h4 class=mb-3>Michael Ryan</h4>
+                            <p>Michael is a senior at Florida state from Somers, Connecticut.<br>Favorite recipe: Butternut Squash Soup with Crisp Pancetta.</p>
+                        </div>
+                    </div>
+
+                <hr>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <img class="img-fluid rounded-circle" src="images/Haley.jpeg" alt="placeholder" /> 
+                        </div>
+
+                        <div class="col align-self-center">
+                            <h4 class="mb-3">Haley Little</h4>
+                            <p>Haley is a senior at Florida state from Montreal, Canada.<br>Favorite recipe: Awesome slow cooker Pot Roast.</p>
+                        </div>
+                    </div>
+
+                <hr>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <img class="img-fluid rounded-circle" src="images/BrookeLynn.jpeg" alt="placeholder" /> 
+                        </div>
+
+                        <div class="col align-self-center">
+                            <h4 class="mb-3">Brooke Lynn Siracusano</h4>
+                            <p>Brooke Lynn is a senior at Florida state from Orlando, Florida.<br>Favorite recipe: Slow cooker chicken and dumplings.</p>
+                        </div>
+                    </div>
+
+            </div>
+            <!-- End Container-->
+        </section>
+        <!-- End About -->
+</main>
