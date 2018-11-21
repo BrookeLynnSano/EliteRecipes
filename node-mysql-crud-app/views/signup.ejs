@@ -1,0 +1,102 @@
+<% include partials/header.ejs %>
+<% include partials/navbar-2.ejs %>
+
+<main role="main">
+    <section class="jumbotron">
+        <div class="container">
+
+        <!-- Row 1 -->
+            <div class="row">
+
+                <!-- Column 1 -->
+                <div class="col-sm-4">
+                    <br> <h3>Personal Info</h3> <hr>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="firstname">First Name: </label>
+                            <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Last Name: </label>
+                            <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address: </label>
+                            <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                        </div>
+
+                        <div class="radio text-center">
+                            <label for="skill">Cooking Skill Level: </label>
+                            <label><input type="radio" name="skill">Beginner</label>
+                            <label><input type="radio" name="skill">Intermediate</label>
+                            <label><input type="radio" name="skill">Advanced</label>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <!-- Column 2 -->
+                <div class="col-sm-4">
+                    <br> <h3>Account Info</h3> <hr>
+
+                    <form>
+
+                        <div class="form-group">
+                            <label for="password">Username: </label>
+                            <input type="password" class="form-control" id="username" placeholder="Username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password: </label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file">Upload a Profile Photo: </label>
+                            <input type="file" id="file">
+                            <p class="help-block">Make sure it's a good one!</p>
+                        </div>
+
+                    </form>                 
+                </div>
+
+            </div>
+        <!-- End Row 1 -->
+
+
+        <!-- Row 2 -->
+            <div class="row justify-content-center">
+
+                <!-- Terms and Conditions Checkbox-->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">I agree to the Terms and Conditions
+                    </label>
+                </div>
+
+            </div>
+        <!-- End Row 2 -->
+
+        <!-- Row 3 -->
+            <div class="row justify-content-center">
+
+                <!-- Sign Up & Cancel Buttons -->
+                <div class="btn-toolbar">
+                    <form method="get" action="/dashboard">
+                        <button type="submit" class="btn btn-secondary">Sign Up</button>
+                    </form>
+
+                    <form method="get" action="/">
+                        <button class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+
+            </div>
+        <!-- End Row 3 -->
+
+    </section>
+</main>
