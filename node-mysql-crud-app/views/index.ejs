@@ -91,56 +91,38 @@
 
 	</div>
 	<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
-
-
-    <!-- Image Section -->
-    <div class="container">
-        <div class="row justify-content-center" id="images">
-
-            <div class="col m-2">
-                <img class="img-fluid" src="images/Turkey.jpeg" alt="turkey">
-                <h1 class="display-4 text-center mt-2" style="font-size:20px">Holiday Turkey</h1>
-            </div>
-
-            <div class="col m-2">
-                <img class="img-fluid" src="images/SlicedHam.jpeg" alt="turkey">
-                <h1 class="display-4 text-center mt-2" style="font-size:20px">Hickery Honey Ham</h1>
-            </div>
-
-            <div class="col m-2">
-                <img class="img-fluid" src="images/ChristmasCookies.jpeg" alt="turkey">
-                <h1 class="display-4 text-center mt-2" style="font-size:20px">Christmas Sugar Cookies</h1>
-            </div>
-
-        </div>
-        <hr>
-    </div>
-    <!-- End Image Section -->
     
 
-    <!-- Carousel commented out. Try to fix at another time 
+    <!-- Carousel -->
     <div class="container">
-        <!-- <div id="carouselFood" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
+        <div id="carouselFood" class="carousel slide" data-ride="carousel">
+
+	        <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			 </ol>
+
+            <div class="carousel-inner" role="listbox">
 
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="images/Turkey.jpeg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h4 style="color:#EEF1EF;background-color:#5E6572">Classic Holiday Turkey </h4>
+                        <h5>Classic Holiday Turkey</h5>
                     </div>
                 </div>
 
                 <div class="carousel-item">
                     <img class="d-block w-100" src="images/SlicedHam.jpeg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h4 style="color:#EEF1EF;background-color:#5E6572">Smoked Honey Ham</h4>
+                        <h5>Smoked Honey Ham</h5>
                     </div>
                 </div>
 
                 <div class="carousel-item">
                     <img class="d-block w-100" src="images/ChristmasCookies.jpeg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h4 style="color:#EEF1EF;background-color:#5E6572">Christmas Sugar Cookies </h4>
+                        <h5>Christmas Sugar Cookies</h5>
                     </div>
                 </div>
 
@@ -157,10 +139,10 @@
             </a>
         </div>
         <!-- End Carousel -->
+        <hr>
     </div>
     <!-- End Container -->     
-     
-                
+         
 
     <!-- About -->   
         <section class="mb-4" id="about">
@@ -226,4 +208,7 @@
             <!-- End Container-->
         </section>
         <!-- End About -->
+        
 </main>
+
+<% include partials/footer.ejs %>

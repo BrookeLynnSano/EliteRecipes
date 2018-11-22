@@ -13,12 +13,27 @@ body h1, h2, h3, h4{
   color: #5E6572
 }
 
+body h5{
+  color: white;
+    background-color:#5E6572;
+}
+
  body a {
     color: #7D98A1;
  }
 
  body a:hover {
     color: #A9B4C2;
+ }
+
+ #carouselFood img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 1000px !important;
+    height: 500px;
+
  }
 
  #circles img {
