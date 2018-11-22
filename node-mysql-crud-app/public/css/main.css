@@ -57,6 +57,19 @@ body h1, h2, h3, h4{
     padding-bottom: 20px;
 }
 
+#images h1 {
+    font-size: 20px;
+}
+
+#images img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 250px;
+}
+
+
 .jumbotron h1 {
     color: #465366;
 }
