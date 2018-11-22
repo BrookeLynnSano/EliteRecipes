@@ -45,7 +45,7 @@ body h5{
 }
 
 .nav a:hover {
-    color: white;
+    color: #EEF1EF;
 }
 
 .add-recipe-form {
@@ -60,6 +60,10 @@ body h5{
 .btn {
     background-color: #5E6572 !important;
     color: white;
+}
+
+.btn:hover {
+   color: #1C2321;
 }
 
 .jumbotron {
