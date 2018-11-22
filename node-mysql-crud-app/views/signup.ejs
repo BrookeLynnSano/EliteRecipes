@@ -2,14 +2,14 @@
 <% include partials/navbar-2.ejs %>
 
 <main role="main">
-    <section class="jumbotron">
+   <section class="jumbotron">
         <div class="container">
 
         <!-- Row 1 -->
             <div class="row">
 
                 <!-- Column 1 -->
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <br> <h3>Personal Info</h3> <hr>
                     
                     <form>
@@ -28,11 +28,11 @@
                             <input type="email" class="form-control" id="email" placeholder="email@example.com">
                         </div>
 
-                        <div class="radio text-center">
-                            <label for="skill">Cooking Skill Level: </label>
-                            <label><input type="radio" name="skill">Beginner</label>
-                            <label><input type="radio" name="skill">Intermediate</label>
-                            <label><input type="radio" name="skill">Advanced</label>
+                        <div class="radio">
+                            <label for="skill">Cooking Skill Level: </label><br>
+                            <label><input type="radio" name="skill" class="mr-2 ml-2">Beginner</label>
+                            <label><input type="radio" name="skill" class="mr-2 ml-2">Intermediate</label>
+                            <label><input type="radio" name="skill" class="mr-2 ml-2">Advanced</label>
                         </div>
 
                     </form>
@@ -40,7 +40,7 @@
 
 
                 <!-- Column 2 -->
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <br> <h3>Account Info</h3> <hr>
 
                     <form>
@@ -56,9 +56,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="file">Upload a Profile Photo: </label>
+                            <label for="file">Upload a Profile Photo: </label> <br>
                             <input type="file" id="file">
-                            <p class="help-block">Make sure it's a good one!</p>
                         </div>
 
                     </form>                 
@@ -74,7 +73,7 @@
                 <!-- Terms and Conditions Checkbox-->
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox">I agree to the Terms and Conditions
+                        <input type="checkbox" class="mr-2">I agree to the Terms and Conditions
                     </label>
                 </div>
 
@@ -87,7 +86,7 @@
                 <!-- Sign Up & Cancel Buttons -->
                 <div class="btn-toolbar">
                     <form method="get" action="/dashboard">
-                        <button type="submit" class="btn btn-secondary">Sign Up</button>
+                        <button type="submit" class="btn btn-secondary mr-2">Sign Up</button>
                     </form>
 
                     <form method="get" action="/">
