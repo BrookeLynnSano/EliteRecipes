@@ -1,66 +1,40 @@
 <% include partials/header.ejs %>
-<% include partials/navbar2.ejs %>
+<% include partials/navbar3.ejs %>
 
 <main role="main">
    <section class="jumbotron">
         <div class="container">
 
-        <!-- Row 1 -->
+          <!-- Sign Up Form -->
+          <form class="signup" method="get" action="/dashboard">
+
+            <!-- Row 1 -->
             <div class="row">
 
                 <!-- Column 1 -->
                 <div class="col-sm-6">
-                    <br> <h3>Personal Info</h3> <hr>
+                  <br> <h3>Personal Info</h3> <hr>
+                      <label for="firstname">First Name: </label>
+                      <input type="firstname" class="form-control mb-3" id="firstname" placeholder="First Name" required />
 
-                    <form>
-                        <div class="form-group">
-                            <label for="firstname">First Name: </label>
-                            <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
-                        </div>
+                      <label for="lastname">Last Name: </label>
+                      <input type="lastname" class="form-control mb-3" id="lastname" placeholder="Last Name" required />
 
-                        <div class="form-group">
-                            <label for="lastname">Last Name: </label>
-                            <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
-                        </div>
+                      <label for="email">Email Address: </label>
+                      <input type="email" class="form-control mb-3" id="email" placeholder="email@example.com" required />
 
-                        <div class="form-group">
-                            <label for="email">Email Address: </label>
-                            <input type="email" class="form-control" id="email" placeholder="email@example.com">
-                        </div>
-
-                        <div class="radio">
-                            <label for="skill">Cooking Skill Level: </label><br>
-                            <label><input type="radio" name="skill" class="mr-2 ml-2">Beginner</label>
-                            <label><input type="radio" name="skill" class="mr-2 ml-2">Intermediate</label>
-                            <label><input type="radio" name="skill" class="mr-2 ml-2">Advanced</label>
-                        </div>
-
-                    </form>
+                      <label for="skill">Cooking Skill Level: </label><br>
+                      <input type="skill" class="form-control mb-3" id="skill" placeholder="Beginner, Intermediate or Experienced" required />
                 </div>
-
 
                 <!-- Column 2 -->
                 <div class="col-sm-6">
-                    <br> <h3>Account Info</h3> <hr>
+                  <br> <h3>Account Info</h3> <hr>
+                  <label for="username">Username: </label>
+                  <input type="username" class="form-control mb-3" id="username" placeholder="Username" required />
 
-                    <form>
-
-                        <div class="form-group">
-                            <label for="password">Username: </label>
-                            <input type="password" class="form-control" id="username" placeholder="Username">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Password: </label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="file">Upload a Profile Photo: </label> <br>
-                            <input type="file" id="file">
-                        </div>
-
-                    </form>
+                  <label for="password">Password: </label>
+                  <input type="password" class="form-control mb-3" id="password" placeholder="Password" required />
                 </div>
 
             </div>
@@ -68,31 +42,31 @@
 
 
         <!-- Row 2 -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-2">
 
                 <!-- Terms and Conditions Checkbox-->
                 <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="mr-2">I agree to the Terms and Conditions
-                    </label>
+                     <input type="checkbox" class="mr-2 mb-3">I agree to the Terms and Conditions
                 </div>
 
             </div>
         <!-- End Row 2 -->
+
 
         <!-- Row 3 -->
             <div class="row justify-content-center">
 
                 <!-- Sign Up & Cancel Buttons -->
                 <div class="btn-toolbar">
-                    <form method="get" action="/dashboard">
-                        <button type="submit" class="btn btn-secondary mr-2">Sign Up</button>
-                    </form>
-
-                    <form method="get" action="/">
-                        <button class="btn btn-secondary">Cancel</button>
-                    </form>
+                  <button type="submit" class="btn btn-secondary mr-2">Sign Up</button>
                 </div>
+
+        </form>
+        <!-- End Form -->
+
+                <form method="get" action="/">
+                  <button class="btn btn-secondary">Cancel</button>
+                </form>
 
             </div>
         <!-- End Row 3 -->
