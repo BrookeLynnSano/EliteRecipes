@@ -8,7 +8,7 @@ let db = mysql.createConnection({
 
 module.exports = {
     getHomePage: (req, res) => {
-        let query = "SELECT * FROM `recipes` ORDER BY id ASC"; // query database to get all the players
+        let query = "SELECT * FROM `recipes` ORDER BY Value.title ASC"; // query database to get all the recipes
 
         // execute query
         db.query(query, (err, result) => {
