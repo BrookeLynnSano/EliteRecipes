@@ -59,6 +59,16 @@ app.get('/signup', function(req, res) {
 	res.render('signup');
 });
 
+//add recipe page
+app.get('/add', function(req, res) {
+	res.render('add-player');
+});
+
+//edit recipe page
+app.get('/edit', function(req, res) {
+	res.render('edit-player');
+});
+
 //dashboard page
 app.get('/dashboard', function(req, res) {
 	res.render('dashboard');
