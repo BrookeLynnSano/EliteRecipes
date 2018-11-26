@@ -12,9 +12,9 @@ const {getHomePage} = require('./routes/index');
 const {addRecipePage, addRecipe, deleteRecipe, editRecipe, editRecipePage} = require('./routes/player');
 
 const port = 3000;
- 
 
-//connecting to the database 
+
+//connecting to the database
 let db = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -28,8 +28,8 @@ db.connect(function(err) {
 		return console.error('error: ' + err.message);
 	}
 		console.log('connected to the MySQL server.');
-       
-    
+
+
 	});
 
 global.db = db;
@@ -55,3 +55,16 @@ app.post('/edit/:id', editRecipe);
 
 //set the app to listen on the port
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+// Logs the user out and destroys their session
+app.get('/logout', function (req, res) {
+  req.logout()
+  res.redirect('/')
+})
+
+//ROUTES
+//sign up page
+app.get('/signup', function(req, res) {
+	res.render('signup');
+});

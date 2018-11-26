@@ -1,5 +1,5 @@
 <% include partials/header.ejs %>
-<% include partials/navbar-2.ejs %>
+<% include partials/navbar2.ejs %>
 
 <div class="container">
     <% if (message) { %>
@@ -22,7 +22,7 @@
                     <input type="text" class="form-control" name="ingredients" id="ingredients" value="<%= recipes.Value.ingredients %>" required>
                 </div>
             </div>
-            
+
             <button type="submit" class="btn btn-success float-right">Update Recipe</button>
         </form>
     <% } else { %>
