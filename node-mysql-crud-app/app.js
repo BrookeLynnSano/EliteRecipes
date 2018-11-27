@@ -76,33 +76,47 @@ app.get('/dashboard', function(req, res) {
 	res.render('dashboard');
 });
 
-//results page
-app.get('/result', function(req, res) {
-	res.render('result');
-})
-
 //recipe page
 app.get('/recipe', function(req, res) {
 	res.render('recipe');
 })
 
-app.get('/testdb', (req,res) =>{
 
+//DATABASE
+//results page from entered search item
+app.get('/result', function(req, res) => {
+	//obtain input value
+	let search = req.query.search;
+//array with input
+let input = [search]
+console.log(search);
+
+	let query = "SELECT * FROM recipes WHERE name LIKE '%?%' ";
+		db.query(query, input, (err, result) => {
+			if (err) {
+				console.log(err);
+				return res.status(500).send(err);
+			}
+			res.render('result', {
+				recipe:recipe
+			});
+		});
+})
+
+//add recipe to database
+app.get('/testdb', (req,res) => {
 	let id = req.query.id;
 	let name = req.query.name;
 	let ingredients = req.query.ingredients;
 	let instructions = req.query.instructions;
-
 let input = [id, name, ingredients, instructions]
-
 console.log(id + ' ' + name + ' ' + ingredients);
-
-	let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
-					db.query(query, input, (err, result) => {
-							if (err) {
-								console.log(err);
-								 return res.status(500).send(err);
-						}
-						res.redirect('/');
-			});
+let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
+	db.query(query, input, (err, result) => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send(err);
+		}
+		res.redirect('/');
+	});
 })

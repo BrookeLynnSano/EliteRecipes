@@ -1,63 +1,6 @@
 <% include partials/header.ejs %>
 <% include partials/navbar2.ejs %>
 
-<%
-// This is test data, remove later
-var recipe = [
-{	id: '123abc',
-    name: 'Grilled Cheese',
-    ingredients: 'butter, american cheese, bread',
-    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
-                    spread a thin layer of butter to both sides of the bread \
-                    put cheese slices on one piece of bread and place the other on top \
-                    place sandwhich in pan and heat each side for about a minute'
-},
-{	id: '456efg',
-    name: 'Quesadilla',
-    ingredients: 'butter, shreaded american cheese, tortilla',
-    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
-                    spread a thin layer of butter to both sides of the tortilla \
-                    put shreaded cheese on one half of the tortilla, \
-                    fold tortilla in half, \
-                    place tortilla in pan and heat each side for about a minute'
-},
-{	id: '789hij',
-    name: 'Soup',
-    ingredients: 'Campbell\'s Chicken Noodle Soup',
-    instructions: 'add contents of the can to a medium sized pot, \
-                    turn the stove on medium heat, \
-                    heat soup for about 10 minutes,'
-}
-] %>
-
-<!--
-<main role="main">
-   <section class="jumbotron">
-        <div class="container">
-                <h1 class="lead">Search Results...</h1>
-
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3">Recipe Title</dt>
-                            <dd class="col-sm-9"><%= recipe.name %></dd>
-
-                            <dt class="col-sm-3">Recipe ID</dt>
-                            <dd class="col-sm-9"><%= recipe.id %></dd>
-
-                            <dt class="col-sm-3">Ingredients</dt>
-                            <dd class="col-sm-9"><%= recipe.ingredients %></dd>
-
-                            <dt class="col-sm-3">Instructions</dt>
-                            <dd class="col-sm-9"><%= recipe.instructions %></dd>
-                        </dl>
-                    </div>
-                </div>
-          </div>
-    </section>
-</main>
--->
-
 <!-- Displays a table of recipes -->
     <div class="container pt-4">
         <div class="table-wrapper">
