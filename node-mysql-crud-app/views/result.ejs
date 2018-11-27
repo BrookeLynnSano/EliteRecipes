@@ -1,18 +1,36 @@
 <% include partials/header.ejs %>
-<% include partials/navbar3.ejs %>
+<% include partials/navbar2.ejs %>
 
 <%
 // This is test data, remove later
-var recipe = {
-	rid: '12345',
-    title: 'grilled cheese',
+var recipe = [
+{	id: '123abc',
+    name: 'Grilled Cheese',
     ingredients: 'butter, american cheese, bread',
     instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
                     spread a thin layer of butter to both sides of the bread \
                     put cheese slices on one piece of bread and place the other on top \
                     place sandwhich in pan and heat each side for about a minute'
-} %>
+},
+{	id: '456efg',
+    name: 'Quesadilla',
+    ingredients: 'butter, shreaded american cheese, tortilla',
+    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
+                    spread a thin layer of butter to both sides of the tortilla \
+                    put shreaded cheese on one half of the tortilla, \
+                    fold tortilla in half, \
+                    place tortilla in pan and heat each side for about a minute'
+},
+{	id: '789hij',
+    name: 'Soup',
+    ingredients: 'Campbell\'s Chicken Noodle Soup',
+    instructions: 'add contents of the can to a medium sized pot, \
+                    turn the stove on medium heat, \
+                    heat soup for about 10 minutes,'
+}
+] %>
 
+<!--
 <main role="main">
    <section class="jumbotron">
         <div class="container">
@@ -21,11 +39,11 @@ var recipe = {
                 <div class="card mb-3">
                     <div class="card-body">
                         <dl class="row">
-                            <dt class="col-sm-3">Recipe ID</dt>
-                            <dd class="col-sm-9"><%= recipe.rid %></dd>
-
                             <dt class="col-sm-3">Recipe Title</dt>
-                            <dd class="col-sm-9"><%= recipe.title %></dd>
+                            <dd class="col-sm-9"><%= recipe.name %></dd>
+
+                            <dt class="col-sm-3">Recipe ID</dt>
+                            <dd class="col-sm-9"><%= recipe.id %></dd>
 
                             <dt class="col-sm-3">Ingredients</dt>
                             <dd class="col-sm-9"><%= recipe.ingredients %></dd>
@@ -38,5 +56,42 @@ var recipe = {
           </div>
     </section>
 </main>
+-->
+
+<!-- Displays a table of recipes -->
+    <div class="container pt-4">
+        <div class="table-wrapper">
+          <% if (recipe.length > 0) {%>
+          <table class="table table-hovered">
+             <thead class="thead-light">
+                 <tr>
+                     <th scope="col">id</th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Ingredients</th>
+                     <th scope="col">Instructions</th>
+                     <th scope="col">Action</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <% recipe.forEach((recipe, index) => { %>
+                     <tr>
+                         <th scope="row"><%= recipe.id %></th>
+                         <td><%= recipe.name %></td>
+                         <td><%= recipe.ingredients %></td>
+                         <td><%= recipe.instructions %></td>
+                         <td>
+                             <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-secondary mb-2">Edit</a>
+                             <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
+                         </td>
+                     </tr>
+                 <% }) %>
+             </tbody>
+         </table>
+          <% } else { %>
+                <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
+        <% } %>
+        </div>
+        <hr>
+    </div>
 
 <% include partials/footer.ejs %>

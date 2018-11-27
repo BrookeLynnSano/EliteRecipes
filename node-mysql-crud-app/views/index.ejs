@@ -26,12 +26,8 @@
             <hr>
             <p class="lead text-center">Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!</p>
 
-            <!--<form method="get" action="/signup">
-                <input class="topnav" type="text" placeholder="Search...">
-            </form> -->
-
             <div class="topnav">
-                <input type="text" placeholder="Ingredients...">
+                <input type="text" placeholder="Search...">
             </div>
 
             <br>
@@ -49,46 +45,6 @@
         <!-- End Container -->
     </section>
     <!-- End Jumbotron -->
-
-
-    <!-- DONT CHANGE BELOW CODE YET, The above code displays a table of recipes -->
-    <div class="container">
-	    <div class="table-wrapper">
-	      <% if (recipes.length > 0) {%>
-          <table class="table table-hovered">
-             <thead class="thead-dark">
-                 <tr>
-                     <th scope="col">id</th>
-                     <th scope="col">Name</th>
-                     <th scope="col">Ingredients</th>
-                     <th scope="col">Instructions</th>
-                     <th scope="col">Action</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <% recipes.forEach((recipe, index) => { %>
-                     <tr>
-                         <th scope="row"><%= recipe.id %></th>
-                         <td><%= recipe.name %></td>
-                         <td><%= recipe.ingredients %></td>
-                         <td><%= recipe.instructions %></td>
-                         <td>
-                             <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
-                             <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
-                         </td>
-                     </tr>
-                 <% }) %>
-             </tbody>
-         </table>
-	      <% } else { %>
-	            <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
-        <% } %>
-	    </div>
-
-		<hr>
-
-	</div>
-	<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
 
 
     <!-- Carousel -->
