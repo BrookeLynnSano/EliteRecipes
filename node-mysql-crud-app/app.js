@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const layout = require('express-layout');
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
@@ -38,10 +39,8 @@ app.set('views', __dirname + '/views'); // set express to look in this folder to
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
-app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
-
-
+app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 
 // routes for the app
 app.get('/', getHomePage);
@@ -54,15 +53,23 @@ app.post('/edit/:id', editRecipe);
 //set the app to listen on the port
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
-
-// Logs the user out and destroys their session
-app.get('/logout', function (req, res) {
-  req.logout()
-  res.redirect('/')
-})
-
 //ROUTES
 //sign up page
 app.get('/signup', function(req, res) {
 	res.render('signup');
+});
+
+//add recipe page
+app.get('/add', function(req, res) {
+	res.render('add-player');
+});
+
+//edit recipe page
+app.get('/edit', function(req, res) {
+	res.render('edit-player');
+});
+
+//dashboard page
+app.get('/dashboard', function(req, res) {
+	res.render('dashboard');
 });
