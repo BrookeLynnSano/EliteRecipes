@@ -5,28 +5,28 @@ module.exports = {
         res.render('add-player.ejs', {
             title: "Welcome to Elite Recipes | Add a new recipe"
             ,message: ''
-
         });
-        console.log("in the addRecipePage part");
+
     },
     addRecipe: (req, res) => {
         if (!req.files) {
             return res.status(400).send("No files were uploaded.");
         }
 console.log("in the addRecipe part");
-      let message = '';
+/*      let message = '';
+      let id = req.body.id;
       let name = req.body.name;
       let ingredients = req.body.ingredients;
       let instructions = req.body.instructions;
+*/
 
-
-  /*    var form ={
-          id: req.body.Name,
-          name: req.body.Values.title,
-          ingredient: req.body.Values.ingredient,
-          instruct: req.body.Values.instructions,
-        }
-        console.log(form) */
+     const response = {
+          id: req.body.id,
+          name: req.body.name,
+          ingredient: req.body.ingredients,
+          instruct: req.body.instructions,
+        }; 
+        console.log(response)
 
       //  let fileExtension = uploadedFile.mimetype.split('/')[1];
         //image_name = username + '.' + fileExtension;

@@ -15,7 +15,7 @@ const port = 3000;
 let db = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '',
+	password: 'Stormz!',
 	database: 'recipe'
 
 });
@@ -79,4 +79,22 @@ app.get('/result', function(req, res) {
 //recipe page
 app.get('/recipe', function(req, res) {
 	res.render('recipe');
+})
+
+app.get('/testdb', (req,res) =>{
+	const response ={
+  id: req.body.id,
+	name: req.body.name,
+	ingredients: req.body.ingredients,
+	instructions: req.body.instructions,
+};
+console.log(response);
+
+	let query = "INSERT INTO `recipes` (id, name, ingredients, instructions) VALUES ('" + id + "', '" + name + "', '" + ingredients + "', '" + instructions + "')";
+					db.query(query, (err, result) => {
+							if (err) {
+								 return res.status(500).send(err);
+						}
+						res.redirect('/');
+			});
 })
