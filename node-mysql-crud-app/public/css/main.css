@@ -18,27 +18,27 @@ body h5{
     background-color:#5E6572;
 }
 
- body a {
+body a {
     color: #7D98A1;
- }
+}
 
- body a:hover {
+body a:hover {
     color: #A9B4C2;
- }
+}
 
- #carouselFood img {
+#carouselFood img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: auto;
     max-width: 1000px !important;
     height: 500px;
- }
+}
 
- #circles img {
+#circles img {
     height:100% !important;
     width:300px !important;
- }
+}
 
 .nav a {
     color: #5E6572;
@@ -99,4 +99,10 @@ body h5{
 
 .jumbotron .btn {
     background-color: #7D98A1 !important;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
