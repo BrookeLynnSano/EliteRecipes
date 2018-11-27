@@ -25,18 +25,18 @@
 
             <hr>
             <p class="lead text-center">Elite Recipes allows users to find delicious recipes by entering ingredients that they have. Or, if a user wants to know to a specific recipe, that can be searched too!</p>
-                
-            <!--<form method="get" action="/signup"> 
+
+            <!--<form method="get" action="/signup">
                 <input class="topnav" type="text" placeholder="Search...">
             </form> -->
-                
+
             <div class="topnav">
                 <input type="text" placeholder="Ingredients...">
             </div>
-                
+
             <br>
             <hr>
- 
+
             <p class="lead text-center"> Be sure to add new found recipes to your personal cookbook by signing in!<br>Don't have an account? Make one today, free of charge!</p>
 
             <div class="row justify-content-center">
@@ -49,12 +49,12 @@
         <!-- End Container -->
     </section>
     <!-- End Jumbotron -->
-        
+
 
     <!-- DONT CHANGE BELOW CODE YET, The above code displays a table of recipes -->
     <div class="container">
 	    <div class="table-wrapper">
-	        <% if (recipes > 0) {%>
+	       <% if (db.rows > 0) {%>
 	            <table class="table table-hovered">
 	                <thead class="thead-dark">
 	                    <tr>
@@ -79,16 +79,16 @@
 	                    <% }) %>
 	                </tbody>
 	            </table>
-	       <% } else { %>
+	      <% } else { %>
 	            <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
 	        <% } %>
 	    </div>
 
 		<hr>
 
-	</div>
+	</div> 
 	<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
-    
+
 
     <!-- Carousel -->
     <div class="container">
@@ -138,17 +138,17 @@
         <!-- End Carousel -->
         <hr>
     </div>
-    <!-- End Container -->     
-         
+    <!-- End Container -->
 
-    <!-- About -->   
+
+    <!-- About -->
         <section class="mb-4" id="about">
             <div class="container">
 
                 <br><br>
                 <h1 class="display-4">About Us</h1>
                 <hr>
-                    
+
                     <div class="row">
                         <div class="col">
                             <p class="text-justify">The average person would rather go out to eat than try to make something for themselves because they claim they “don’t know how to cook.” While this may be true in some cases, the reality of the situation is that most people can cook, they just don’t know what to cook. That is where Elite Recipes by ToonSquad becomes useful. Users will be able to search for a recipe either by name, or by some of the ingredients they have or are hungry for.  Everytime you visit Elite Recipes, you will see suggested seasonal dishes to cook based on time of year. We also provide a section on each recipe for other users who previously cooked the dish to add tips and comments so it will turn out the best way possible.</p>
@@ -166,7 +166,7 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <img class="img-fluid rounded-circle" src="images/Michael.jpeg" alt="michael" /> 
+                            <img class="img-fluid rounded-circle" src="images/Michael.jpeg" alt="michael" />
                         </div>
 
                         <div class="col align-self-center">
@@ -179,7 +179,7 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <img class="img-fluid rounded-circle" src="images/Haley.jpeg" alt="haley" /> 
+                            <img class="img-fluid rounded-circle" src="images/Haley.jpeg" alt="haley" />
                         </div>
 
                         <div class="col align-self-center">
@@ -192,7 +192,7 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <img class="img-fluid rounded-circle" src="images/BrookeLynn.jpeg" alt="brookelynn" /> 
+                            <img class="img-fluid rounded-circle" src="images/BrookeLynn.jpeg" alt="brookelynn" />
                         </div>
 
                         <div class="col align-self-center">
@@ -205,7 +205,7 @@
             <!-- End Container-->
         </section>
         <!-- End About -->
-        
+
 </main>
 
 <% include partials/footer.ejs %>

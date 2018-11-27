@@ -28,8 +28,6 @@ db.connect(function(err) {
 		return console.error('error: ' + err.message);
 	}
 		console.log('connected to the MySQL server.');
-
-
 	});
 
 global.db = db;

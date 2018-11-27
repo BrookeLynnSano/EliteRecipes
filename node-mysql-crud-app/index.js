@@ -15,7 +15,8 @@ module.exports = {
           if (err) {
                 res.redirect('/');
              }
-           res.render('index.ejs', {
+
+y             res.render('index.ejs', {
                 title: "Welcome to Elite Recipes | View Recipes"
                 ,recipes: result
             });

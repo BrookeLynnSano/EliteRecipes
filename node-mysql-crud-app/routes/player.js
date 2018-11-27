@@ -13,41 +13,42 @@ module.exports = {
         }
 */
         let message = '';
-        let first_name = req.body.Name;
-        let last_name = req.body.Values.title;
-        let position = req.body.Values.ingredient;
-        let number = req.body.Values.instructions;
-        
-        let fileExtension = uploadedFile.mimetype.split('/')[1];
+        let id = req.body.Name;
+        let name = req.body.Values.title;
+        let ingredient = req.body.Values.ingredient;
+        let instruct = req.body.Values.instructions;
+
+      //  let fileExtension = uploadedFile.mimetype.split('/')[1];
         //image_name = username + '.' + fileExtension;
 
-        let titleQuery = "SELECT * FROM `recipes` WHERE title = '" + title + "'";
+        let titleQuery = "SELECT * FROM `recipes` WHERE title = '" + name + "'";
 
         db.query(titleQuery, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            if (result.length > 0) {
+          /*  if (result.length > 0) {
                 message = 'Recipe already exists';
                 res.render('add-player.ejs', {
                     message,
                     title: "Welcome to Elite Recipes | Add a new recipe"
-                });
-            } else {
+                }); */
+            //}
+            else {
                 // check the filetype before uploading it
-                if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
+              //  if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
                     // upload the file to the /public/assets/img directory
-                    uploadedFile.mv(`public/assets/img/${image_name}`, (err ) => {
-                        if (err) {
-                            return res.status(500).send(err);
-                        }
+                  // uploadedFile.mv(`public/assets/img/${image_name}`, (err ) => {
+                      //  if (err) {
+                      //      return res.status(500).send(err);
+                        //}
                         // send the player's details to the database
-                       
+
                         con.connect(function(err) {
                         if (err) throw err;
                         console.log("Connected!");
                         var sql = "INSERT INTO recipes (Name, Value.title, Value.ingredients, Value.instructions) VALUES ('" +
-                            Name + "', '" + title + "', '" + ingredients + "', '" + instructions + "')";
+                            id + "', '" + name + "', '" + ingredients + "', '" + instruct + "')";
 
                         //(Name, , address, email, skill) VALUES ('001', 'Brooke Lynn', 'Highway 37', 'bls@gmail.com', 'beginner')";
                         con.query(sql, function (err, result) {
@@ -60,7 +61,7 @@ module.exports = {
 
                        // let query = "INSERT INTO `recipes` (Name, Value.title, Value.ingredients, Value.instructions) VALUES ('" +
                          //   Name + "', '" + Value.title + "', '" + Value.ingredients + "', '" + Value.instructions + "')";
-                        
+
 
 
                         db.query(query, (err, result) => {
@@ -69,17 +70,18 @@ module.exports = {
                             }
                             res.redirect('/');
                         });
-                    });
-                } else {
-                    message = "Invalid File format. Only 'gif', 'jpeg' and 'png' images are allowed.";
+                   //});
+            //     } else {
+              //      message = "Invalid File format. Only 'gif', 'jpeg' and 'png' images are allowed.";
                     res.render('add-player.ejs', {
                         message,
                         title: "Welcome to Elite Recipes | Add a new recipe"
                     });
-                }
+              //  }
             }
         });
     },
+
     editRecipePage: (req, res) => {
         let recId = req.params.id;
         let query = "SELECT * FROM `recipes` WHERE Name = '" + recId + "' ";
@@ -94,13 +96,14 @@ module.exports = {
             });
         });
     },
+
     editRecipe: (req, res) => {
         let recId = req.params.id;
         let title = req.body.title;
         let ingredients = req.body.ingredients;
         let instructions = req.body.instructions;
-        
-        let query = "UPDATE `recipes` SET `title` = '" + title + "', `Value.ingredients` = '" + ingredients + "', `Value.instructions` = '" + instructions + "',  WHERE `recipes`.`Name` = '" + recId + "'";        
+
+        let query = "UPDATE `recipes` SET `title` = '" + title + "', `Value.ingredients` = '" + ingredients + "', `Value.instructions` = '" + instructions + "',  WHERE `recipes`.`Name` = '" + recId + "'";
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
@@ -108,6 +111,7 @@ module.exports = {
             res.redirect('/');
         });
     },
+
     deleteRecipe: (req, res) => {
         let recId = req.params.id;
         //let getImageQuery = 'SELECT image from `players` WHERE id = "' + playerId + '"';
