@@ -13,21 +13,14 @@ module.exports = {
             return res.status(400).send("No files were uploaded.");
         }
 console.log("in the addRecipe part");
-/*      let message = '';
-      let id = req.body.id;
-      let name = req.body.name;
-      let ingredients = req.body.ingredients;
-      let instructions = req.body.instructions;
-*/
 
-     const response = {
+  /*   const response = {
           id: req.body.id,
           name: req.body.name,
           ingredient: req.body.ingredients,
           instruct: req.body.instructions,
-        }; 
-        console.log(response)
-
+        }; */
+      
       //  let fileExtension = uploadedFile.mimetype.split('/')[1];
         //image_name = username + '.' + fileExtension;
 

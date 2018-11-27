@@ -1,9 +1,15 @@
 const express = require('express');
+const app = express();
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
-const bodyParser = require('body-parser');
 const path = require('path');
-const app = express();
+
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // parse form data client
+
+
 
 const {getHomePage} = require('./routes/index');
 const {addRecipePage, addRecipe, deleteRecipe, editRecipe, editRecipePage} = require('./routes/player');
@@ -33,8 +39,7 @@ global.db = db;
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json()); // parse form data client
+
 app.use(fileUpload()); // configure fileupload
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 
@@ -82,17 +87,20 @@ app.get('/recipe', function(req, res) {
 })
 
 app.get('/testdb', (req,res) =>{
-	const response ={
-  id: req.body.id,
-	name: req.body.name,
-	ingredients: req.body.ingredients,
-	instructions: req.body.instructions,
-};
-console.log(response);
 
-	let query = "INSERT INTO `recipes` (id, name, ingredients, instructions) VALUES ('" + id + "', '" + name + "', '" + ingredients + "', '" + instructions + "')";
-					db.query(query, (err, result) => {
+	let id = req.query.id;
+	let name = req.query.name;
+	let ingredients = req.query.ingredients;
+	let instructions = req.query.instructions;
+
+let input = [id, name, ingredients, instructions]
+
+console.log(id + ' ' + name + ' ' + ingredients);
+
+	let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
+					db.query(query, input, (err, result) => {
 							if (err) {
+								console.log(err);
 								 return res.status(500).send(err);
 						}
 						res.redirect('/');
