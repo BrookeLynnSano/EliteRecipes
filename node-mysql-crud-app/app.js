@@ -6,9 +6,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
-//app.get('/', (req, res) => res.send('Hello World!'))
-
-
 const {getHomePage} = require('./routes/index');
 const {addRecipePage, addRecipe, deleteRecipe, editRecipe, editRecipePage} = require('./routes/player');
 
@@ -19,7 +16,7 @@ const port = 3000;
 let db = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'Stormz!',
+	password: '',
 	database: 'recipe'
 
 });
@@ -62,6 +59,7 @@ app.get('/signup', function(req, res) {
 //add recipe page
 app.get('/add', function(req, res) {
 	res.render('add-player');
+
 });
 
 //edit recipe page

@@ -5,35 +5,47 @@ module.exports = {
         res.render('add-player.ejs', {
             title: "Welcome to Elite Recipes | Add a new recipe"
             ,message: ''
+
         });
+        console.log("in the addRecipePage part");
     },
     addRecipe: (req, res) => {
-       /* if (!req.files) {
+        if (!req.files) {
             return res.status(400).send("No files were uploaded.");
         }
-*/
-        let message = '';
-        let id = req.body.Name;
-        let name = req.body.Values.title;
-        let ingredient = req.body.Values.ingredient;
-        let instruct = req.body.Values.instructions;
+console.log("in the addRecipe part");
+      let message = '';
+      let name = req.body.name;
+      let ingredients = req.body.ingredients;
+      let instructions = req.body.instructions;
+
+
+  /*    var form ={
+          id: req.body.Name,
+          name: req.body.Values.title,
+          ingredient: req.body.Values.ingredient,
+          instruct: req.body.Values.instructions,
+        }
+        console.log(form) */
 
       //  let fileExtension = uploadedFile.mimetype.split('/')[1];
         //image_name = username + '.' + fileExtension;
 
-        let titleQuery = "SELECT * FROM `recipes` WHERE title = '" + name + "'";
+        let nameQuery = "SELECT * FROM `recipes` WHERE name = '" + name + "'";
 
-        db.query(titleQuery, (err, result) => {
+        db.query(nameQuery, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }
-          /*  if (result.length > 0) {
+            console.log("after the nameQUery");
+            if (result.length > 0) {
                 message = 'Recipe already exists';
+                  console.log("recipe already exists should be on the screen");
                 res.render('add-player.ejs', {
                     message,
                     title: "Welcome to Elite Recipes | Add a new recipe"
-                }); */
-            //}
+                });
+              }
             else {
                 // check the filetype before uploading it
               //  if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
@@ -43,8 +55,15 @@ module.exports = {
                       //      return res.status(500).send(err);
                         //}
                         // send the player's details to the database
-
-                        con.connect(function(err) {
+                          console.log("about to insert into the database");
+                        let query = "INSERT INTO `recipes` (id, name, ingredients, instructions) VALUES ('" + id + "', '" + name + "', '" + ingredients + "', '" + instructions + "')";
+                                db.query(query, (err, result) => {
+                                    if (err) {
+                                       return res.status(500).send(err);
+                                  }
+                                  res.redirect('/');
+                            });
+                    /*    con.connect(function(err) {
                         if (err) throw err;
                         console.log("Connected!");
                         var sql = "INSERT INTO recipes (Name, Value.title, Value.ingredients, Value.instructions) VALUES ('" +
@@ -57,28 +76,20 @@ module.exports = {
                            });
                         });
 
-
+*/
 
                        // let query = "INSERT INTO `recipes` (Name, Value.title, Value.ingredients, Value.instructions) VALUES ('" +
                          //   Name + "', '" + Value.title + "', '" + Value.ingredients + "', '" + Value.instructions + "')";
 
-
-
-                        db.query(query, (err, result) => {
-                            if (err) {
-                                return res.status(500).send(err);
-                            }
-                            res.redirect('/');
-                        });
                    //});
-            //     } else {
-              //      message = "Invalid File format. Only 'gif', 'jpeg' and 'png' images are allowed.";
+                 }  /*else {
+                    message = "did not enter into database.";
                     res.render('add-player.ejs', {
                         message,
                         title: "Welcome to Elite Recipes | Add a new recipe"
-                    });
+                    }); */
               //  }
-            }
+            //}
         });
     },
 

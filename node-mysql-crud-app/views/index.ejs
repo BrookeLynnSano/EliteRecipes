@@ -54,39 +54,40 @@
     <!-- DONT CHANGE BELOW CODE YET, The above code displays a table of recipes -->
     <div class="container">
 	    <div class="table-wrapper">
-	       <% if (db.rows > 0) {%>
-	            <table class="table table-hovered">
-	                <thead class="thead-dark">
-	                    <tr>
-	                        <th scope="col">Name</th>
-	                        <th scope="col">Value.title</th>
-	                        <th scope="col">Value.ingredients</th>
-	                        <th scope="col">Value.instructions</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    <% recipes.forEach((recipes, index) => { %>
-	                        <tr>
-	                            <th scope="row"><%= recipes.Name %></th>
-	                            <td><%= recipes.Value.title %></td>
-	                            <td><%= recipes.Value.ingredients %></td>
-	                            <td><%= recipes.Value.instructions %></td>
-	                            <td>
-	                                <a href="/edit/<%= recipes.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
-	                                <a href="/delete/<%= recipes.id %>" class="btn btn-sm btn-danger">Delete</a>
-	                            </td>
-	                        </tr>
-	                    <% }) %>
-	                </tbody>
-	            </table>
+	      <% if (recipes.length > 0) {%>
+          <table class="table table-hovered">
+             <thead class="thead-dark">
+                 <tr>
+                     <th scope="col">id</th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Ingredients</th>
+                     <th scope="col">Instructions</th>
+                     <th scope="col">Action</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <% recipes.forEach((recipe, index) => { %>
+                     <tr>
+                         <th scope="row"><%= recipe.id %></th>
+                         <td><%= recipe.name %></td>
+                         <td><%= recipe.ingredients %></td>
+                         <td><%= recipe.instructions %></td>
+                         <td>
+                             <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                             <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
+                         </td>
+                     </tr>
+                 <% }) %>
+             </tbody>
+         </table>
 	      <% } else { %>
 	            <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
-	        <% } %>
+        <% } %>
 	    </div>
 
 		<hr>
 
-	</div> 
+	</div>
 	<!-- DONT CHANGE ABOVE CODE YET, The above code displays a table of recipes -->
 
 
