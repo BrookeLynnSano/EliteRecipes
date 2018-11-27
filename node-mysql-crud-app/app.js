@@ -84,14 +84,14 @@ app.get('/recipe', function(req, res) {
 
 //DATABASE
 //results page from entered search item
-app.get('/result', function(req, res) => {
+app.get('/result', (req, res) => {
 	//obtain input value
 	let search = req.query.search;
 //array with input
 let input = [search]
 console.log(search);
 
-	let query = "SELECT * FROM recipes WHERE name LIKE '%?%' ";
+	let query = "SELECT * FROM recipe WHERE name LIKE '%?%' ";
 		db.query(query, input, (err, result) => {
 			if (err) {
 				console.log(err);
