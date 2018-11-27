@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+<% include partials/navbar3.ejs %>
+
+<%
+// This is test data, remove later
+var recipe = {
+	rid: '12345',
+    title: 'grilled cheese',
+    ingredients: 'butter, american cheese, bread',
+    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
+                    spread a thin layer of butter to both sides of the bread \
+                    put cheese slices on one piece of bread and place the other on top \
+                    place sandwhich in pan and heat each side for about a minute'
+} %>
+
+<main role="main">
+   <section class="jumbotron">
+        <div class="container">
+                <h1 class="lead">Search Results...</h1>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Recipe ID</dt>
+                            <dd class="col-sm-9"><%= recipe.rid %></dd>
+
+                            <dt class="col-sm-3">Recipe Title</dt>
+                            <dd class="col-sm-9"><%= recipe.title %></dd>
+
+                            <dt class="col-sm-3">Ingredients</dt>
+                            <dd class="col-sm-9"><%= recipe.ingredients %></dd>
+
+                            <dt class="col-sm-3">Instructions</dt>
+                            <dd class="col-sm-9"><%= recipe.instructions %></dd>
+                        </dl>
+                    </div>
+                </div>
+          </div>
+    </section>
+</main>
+
+<% include partials/footer.ejs %>

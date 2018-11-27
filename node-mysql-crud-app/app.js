@@ -70,3 +70,13 @@ app.get('/edit', function(req, res) {
 app.get('/dashboard', function(req, res) {
 	res.render('dashboard');
 });
+
+//results page
+app.get('/result', function(req, res) {
+	res.render('result');
+})
+
+//recipe page
+app.get('/recipe', function(req, res) {
+	res.render('recipe');
+})
