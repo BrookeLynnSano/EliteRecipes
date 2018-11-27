@@ -1,5 +1,4 @@
 const express = require('express');
-const layout = require('express-layout');
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');

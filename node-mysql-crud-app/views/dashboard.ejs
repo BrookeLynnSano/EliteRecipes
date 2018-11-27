@@ -9,31 +9,27 @@ var user = {
 	email: 'haleylittle@gmail.com',
 	username: 'hlittle',
 	skill: 'Intermediate'
-}
-
-user.phone = '(123) 456-7890'
-%>
+} %>
 
 <main role="main">
-		<div class= "container mt-5">
-				<!-- code recieved from bootstrap examples -->
-				<ul class="nav nav-tabs justify-content-end pt-4">
-          <li class="nav-item">
-              <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
-          </li>
-					<li class="nav-item">
-							<a class="nav-link" id="cookbook-tab" data-toggle="tab" href="#cookbook" role="tab" aria-controls="cookbook" aria-selected="false">Cookbook</a>
-					</li>
-				</ul>
+	<div class= "container mt-5">
+		<ul class="nav nav-tabs justify-content-end pt-4">
+	        <li class="nav-item">
+				<a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+	        </li>
+			<li class="nav-item">
+				<a class="nav-link" id="cookbook-tab" data-toggle="tab" href="#cookbook" role="tab" aria-controls="cookbook" aria-selected="false">Cookbook</a>
+			</li>
+		</ul>
 
-				<div class="tab-content">
-          <!-- Displays the metadata for the user and restaurant -->
-          <% include dashboard-panes/profile.ejs %>
+		<div class="tab-content">
+	        <!-- Displays the metadata for the user and restaurant -->
+	        <% include dashboard-panes/profile.ejs %>
 
-					<!-- Displays the metadata for the user and restaurant -->
-					<% include dashboard-panes/cookbook.ejs %>
-				</div>
+			<!-- Displays the metadata for the user and restaurant -->
+			<% include dashboard-panes/cookbook.ejs %>
 		</div>
+	</div>
 </main>
 
 <% include partials/footer.ejs %>
