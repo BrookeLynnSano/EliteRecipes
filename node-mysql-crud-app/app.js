@@ -63,7 +63,6 @@ app.get('/signup', function(req, res) {
 //add recipe page
 app.get('/add', function(req, res) {
 	res.render('add-player');
-
 });
 
 //edit recipe page
@@ -156,6 +155,7 @@ let query = "INSERT INTO cookbook (id) VALUES (?)";
 			console.log(err);
 			return res.status(500).send(err);
 		}
+		alert("Recipe added to your cookbook!");
 		res.redirect('/dashboard');
 	});
 })
