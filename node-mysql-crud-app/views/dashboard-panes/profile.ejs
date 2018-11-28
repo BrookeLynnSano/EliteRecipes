@@ -5,8 +5,8 @@
     <!-- User profile -->
     <div class="card mb-3">
         <div class="card-body">
-            <% if (users.firstName && users.lastName) { %>
-              <h4 class="card-title"><%= users.firstName %> <%= users.lastName %></h4>
+            <% if (users.fname && users.lname) { %>
+              <h4 class="card-title"><%= users.fname %> <%= users.lname %></h4>
             <% } else { %>
               <h4>User's name not found</h4>
             <% } %>
