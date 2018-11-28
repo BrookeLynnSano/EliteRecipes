@@ -1,6 +1,36 @@
 <% include partials/header.ejs %>
 <% include partials/navbar2.ejs %>
 
+<!-- Test data
+var recipe = [
+	{	id: '123',
+	    name: 'Grilled Cheese',
+	    ingredients: 'butter, american cheese, bread',
+	    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
+	                    spread a thin layer of butter to both sides of the bread \
+	                    put cheese slices on one piece of bread and place the other on top \
+	                    place sandwhich in pan and heat each side for about a minute'
+	},
+	{	id: '456',
+	    name: 'Quesadilla',
+	    ingredients: 'butter, shreaded american cheese, tortilla',
+	    instructions: 'put 1 tbsp of butter in a pan and heat until melted, \
+	                    spread a thin layer of butter to both sides of the tortilla \
+	                    put shreaded cheese on one half of the tortilla, \
+	                    fold tortilla in half, \
+	                    place tortilla in pan and heat each side for about a minute'
+	},
+	{	id: '789',
+	    name: 'Soup',
+	    ingredients: 'Campbell\'s Chicken Noodle Soup',
+	    instructions: 'add contents of the can to a medium sized pot, \
+	                    turn the stove on medium heat, \
+	                    heat soup for about 10 minutes,'
+	}
+];
+-->
+
+
 <!-- Displays a table of recipes -->
     <div class="container pt-4">
         <div class="table-wrapper">
@@ -23,8 +53,9 @@
                          <td><%= recipe.ingredients %></td>
                          <td><%= recipe.instructions %></td>
                          <td>
-                             <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-secondary mb-2">Edit</a>
-                             <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
+                             <a href="/edit/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Edit</a>
+                             <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Delete</a>
+                             <a href="/star/<%recipe.id %>" class="btn btn-sm btn-secondary">Star</a>
                          </td>
                      </tr>
                  <% }) %>
