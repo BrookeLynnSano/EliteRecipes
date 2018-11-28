@@ -91,15 +91,17 @@ app.get('/result', (req, res) => {
 let input = [search]
 console.log(search);
 
-	let query = "SELECT * FROM recipes WHERE name LIKE '%'?'%' ";
+	let query = "SELECT * FROM recipes WHERE 'name' LIKE '%'?'%' ";
 		db.query(query, input, (err, result) => {
 			if (err) {
 				console.log(err);
 				return res.status(500).send(err);
 			}
+			var recipes;
 			res.render('result', {
-				recipe:recipe
+				recipes:recipes
 			});
+
 		});
 })
 
