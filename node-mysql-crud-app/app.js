@@ -91,7 +91,7 @@ app.get('/result', (req, res) => {
 let input = [search]
 console.log(search);
 
-	let query = "SELECT * FROM recipe WHERE name LIKE '%?%' ";
+	let query = "SELECT * FROM recipes WHERE name LIKE '%'?'%' ";
 		db.query(query, input, (err, result) => {
 			if (err) {
 				console.log(err);
