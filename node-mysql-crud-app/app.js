@@ -120,3 +120,24 @@ let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?
 		res.redirect('/');
 	});
 })
+
+//add user to the DATABASE
+app.get('/testsignup', (req,res) => {
+	let firstname = req.query.firstname;
+	let lastname = req.query.lastname;
+	let email = req.query.email;
+	let skill = req.query.skill;
+	let username = req.query.username;
+	let password = req.query.password;
+
+let input = [firstname, lastname, email, skill, username, password]
+console.log(firstname + ' ' + lastname);
+let query = "INSERT INTO users (firstname, lastname, email, skill, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+	db.query(query, input, (err, result) => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send(err);
+		}
+		res.redirect('/dashboard');
+	});
+})
