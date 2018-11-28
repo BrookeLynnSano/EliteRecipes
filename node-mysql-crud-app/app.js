@@ -143,3 +143,19 @@ let query = "INSERT INTO users (fname, lname, email, skill, username, password) 
 		res.redirect('/dashboard');
 	});
 })
+
+//add recipe to user's cookbook
+app.get('/star', (req,res) => {
+	let id = req.query.id;
+
+let input = [id]
+console.log(id);
+let query = "INSERT INTO cookbook (id) VALUES (?)";
+	db.query(query, input, (err, result) => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send(err);
+		}
+		res.redirect('/dashboard');
+	});
+})

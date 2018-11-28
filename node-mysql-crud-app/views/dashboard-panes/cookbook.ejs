@@ -15,7 +15,38 @@
     <!-- Saved Recipes -->
     <div class="card mb-3">
         <div class="card-body">
-          <h1 class="lead">No saved recipes yet!</h1>
+            <!-- Displays a table of recipes -->
+            <div class="table-wrapper">
+                <% if (recipes.length > 0) {%>
+                <table class="table table-hovered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Ingredients</th>
+                            <th scope="col">Instructions</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% recipe.forEach((recipe, index) => { %>
+                        <tr>
+                            <th scope="row"><%= recipe.id %></th>
+                            <td><%= recipe.name %></td>
+                            <td><%= recipe.ingredients %></td>
+                            <td><%= recipe.instructions %></td>
+                            <td>
+                            <a href="/edit/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Edit</a>
+                            <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Delete</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
+                <% } %>
+            </div>
         </div>
     </div>
 
