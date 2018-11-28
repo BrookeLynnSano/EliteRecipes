@@ -5,21 +5,21 @@
     <!-- User profile -->
     <div class="card mb-3">
         <div class="card-body">
-            <% if (user.firstName && user.lastName) { %>
-              <h4 class="card-title"><%= user.firstName %> <%= user.lastName %></h4>
+            <% if (users.firstName && users.lastName) { %>
+              <h4 class="card-title"><%= users.firstName %> <%= users.lastName %></h4>
             <% } else { %>
               <h4>User's name not found</h4>
             <% } %>
 
             <dl class="row">
                 <dt class="col-sm-3">Username</dt>
-                <dd class="col-sm-9"><%= user.username %></dd>
+                <dd class="col-sm-9"><%= users.username %></dd>
 
                 <dt class="col-sm-3">Email</dt>
-                <dd class="col-sm-9"><%= user.email %></dd>
+                <dd class="col-sm-9"><%= users.email %></dd>
 
                 <dt class="col-sm-3">Skill</dt>
-                <dd class="col-sm-9"><%= user.skill %></dd>
+                <dd class="col-sm-9"><%= users.skill %></dd>
             </dl>
         </div>
     </div>
