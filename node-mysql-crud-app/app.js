@@ -134,7 +134,7 @@ app.get('/testsignup', (req,res) => {
 
 let input = [firstname, lastname, email, skill, username, password]
 console.log(firstname + ' ' + lastname);
-let query = "INSERT INTO users (firstname, lastname, email, skill, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+let query = "INSERT INTO users (fname, lname, email, skill, username, password) VALUES (?, ?, ?, ?, ?, ?)";
 	db.query(query, input, (err, result) => {
 		if (err) {
 			console.log(err);
