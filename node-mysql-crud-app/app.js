@@ -124,7 +124,6 @@ app.get('/testdb', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
-		alert("Recipe added!")
         res.redirect('/');
     });
 })
@@ -148,13 +147,13 @@ app.get('/testsignup', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
-		var users = [];
-        for (var i = 0;i < result.length; i++) {
-            users.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username});
-        }
-		alert("User Created!")
+		var user = {firstname: firstname, lastname: lastname, email: email, skill: skill, username: username, password: password};
+
+        var recipes =[];
+
         res.render('dashboard', {
-            users: users
+            user: user,
+            recipes: recipes
         });
     });
 })
@@ -174,7 +173,6 @@ app.get('/star', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
-        alert("Recipe added to your cookbook!");
         res.redirect('/dashboard');
     });
 })
