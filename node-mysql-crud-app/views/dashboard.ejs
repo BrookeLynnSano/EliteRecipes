@@ -79,8 +79,8 @@
                                     <td><%= recipe.ingredients %></td>
                                     <td><%= recipe.instructions %></td>
                                     <td>
-                                        <a href="/edit/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Edit</a>
-                                        <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Delete</a>
+                                        <a href="/edit?id=<%=recipe.id%>&name=<%=recipe.name%>&ingredients=<%=recipe.ingredients%>&instructions=<%=recipe.instructions%>" class="btn btn-sm btn-secondary mb-2">Edit</a>
+                                        <a href="/delete?id=<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Delete</a>
                                     </td>
                                 </tr>
                             <% }) %>

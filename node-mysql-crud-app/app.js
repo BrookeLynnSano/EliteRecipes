@@ -66,7 +66,20 @@ app.get('/add', function (req, res) {
 
 //edit recipe page
 app.get('/edit', function (req, res) {
-    res.render('edit-player');
+    let id = req.query.id;
+    let name = req.query.name;
+    let ingredients = req.query.ingredients;
+    let instructions = req.query.instructions;
+
+    let input = [id, name, ingredients, instructions];
+    console.log(input);
+
+    var recipe = {id: id, name: name, ingredients: ingredients, instructions: instructions};
+
+    res.render('edit-player', {
+        recipe: recipe
+    });
+
 });
 
 //dashboard page
@@ -107,23 +120,89 @@ app.get('/result', (req, res) => {
     });
 })
 
-//add recipe to database
-app.get('/testdb', (req, res) => {
+// UPDATE RECIPE
+app.get('/update', (req, res) => {
     let id = req.query.id;
     let name = req.query.name;
     let ingredients = req.query.ingredients;
     let instructions = req.query.instructions;
 
-    let input = [id, name, ingredients, instructions]
+    let input = [name, ingredients, instructions, id];
+    console.log(input);
 
-    console.log(id + ' ' + name + ' ' + ingredients);
+    let query = "UPDATE recipes SET name = ?, ingrediants = ?, instructions = ? WHERE id = ?";
 
-    let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
     db.query(query, input, (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).send(err);
         }
+        res.redirect('/');
+        });
+})
+
+// DELETE RECIPE
+app.get('/delete', (req, res) => {
+    let id = req.query.id;
+
+    let input = [id];
+    console.log(id);
+
+    let query = "DELETE FROM recipes WHERE id = ?";
+
+    db.query(query, input, (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        res.redirect('/');
+    });
+})
+
+// STAR RECIPE
+app.get('/star', (req, res) => {
+    let id = req.query.id;
+
+    let input = [id];
+    console.log(id);
+
+    let query = "DELETE FROM recipes WHERE id = ?";
+
+    db.query(query, input, (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        res.redirect('/');
+    });
+})
+
+//add recipe to database
+app.get('/testdb', (req, res) => {
+    let uid = req.query.uid;
+    let id = req.query.id;
+    let name = req.query.name;
+    let ingredients = req.query.ingredients;
+    let instructions = req.query.instructions;
+
+    let input = [id, name, ingredients, instructions];
+
+    console.log(id + ' ' + name + ' ' + ingredients);
+
+    let query1 = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
+    db.query(query1, input, (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        let input2 = [uid, id];
+    let query2 = "INSERT INTO cookbook (uid, id) VALUES (?, ?)";
+        db.query(query2, input2, (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send(err);
+            }
+        });
         res.redirect('/');
     });
 })
