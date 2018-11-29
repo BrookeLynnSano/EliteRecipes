@@ -86,6 +86,7 @@ app.get('/result', (req, res) => {
     let search = req.query.search;
 
     let input = [search]
+
     console.log(search);
 
     let query = "SELECT * FROM recipes WHERE name LIKE " + db.escape('%'+search+'%');
@@ -112,9 +113,11 @@ app.get('/testdb', (req, res) => {
     let name = req.query.name;
     let ingredients = req.query.ingredients;
     let instructions = req.query.instructions;
+
     let input = [id, name, ingredients, instructions]
 
     console.log(id + ' ' + name + ' ' + ingredients);
+
     let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
     db.query(query, input, (err, result) => {
         if (err) {
@@ -136,7 +139,9 @@ app.get('/testsignup', (req, res) => {
     let password = req.query.password;
 
     let input = [firstname, lastname, email, skill, username, password]
+
     console.log(firstname + ' ' + lastname);
+
     let query = "INSERT INTO users (fname, lname, email, skill, username, password) VALUES (?, ?, ?, ?, ?, ?)";
     db.query(query, input, (err, result) => {
         if (err) {
@@ -147,6 +152,7 @@ app.get('/testsignup', (req, res) => {
         for (var i = 0;i < result.length; i++) {
             users.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username});
         }
+		alert("User Created!")
         res.render('dashboard', {
             users: users
         });
@@ -158,8 +164,11 @@ app.get('/star', (req, res) => {
     let id = req.query.id;
 
     let input = [id]
+
     console.log(id);
+
     let query = "INSERT INTO cookbook (id) VALUES (?)";
+
     db.query(query, input, (err, result) => {
         if (err) {
             console.log(err);
