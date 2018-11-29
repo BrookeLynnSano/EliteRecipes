@@ -122,6 +122,7 @@ app.get('/testdb', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
+		alert("Recipe added!")
         res.redirect('/');
     });
 })
@@ -143,7 +144,14 @@ app.get('/testsignup', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
-        res.redirect('/dashboard');
+		var users = [];
+        for (var i = 0;i < result.length; i++) {
+            recipes.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
+        }
+        //var recipes = result;
+        res.render('dashboard', {
+            users: users
+        });
     });
 })
 
