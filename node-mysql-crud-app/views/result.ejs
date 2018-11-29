@@ -34,7 +34,7 @@ var recipe = [
 <!-- Displays a table of recipes -->
     <div class="container pt-4">
         <div class="table-wrapper">
-          <% if (recipes.length > 0) {%>
+      	<% if (recipes.length > 0) {%>
           <table class="table table-hovered">
              <thead class="thead-light">
                  <tr>
@@ -46,7 +46,7 @@ var recipe = [
                  </tr>
              </thead>
              <tbody>
-                 <% recipe.forEach((recipe, index) => { %>
+                 <% recipes.forEach((recipe, index) => { %>
                      <tr>
                          <th scope="row"><%= recipe.id %></th>
                          <td><%= recipe.name %></td>
@@ -61,9 +61,9 @@ var recipe = [
                  <% }) %>
              </tbody>
          </table>
-          <% } else { %>
+    		<% } else { %>
                 <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
-        <% } %>
+				<% } %>
         </div>
         <hr>
     </div>
