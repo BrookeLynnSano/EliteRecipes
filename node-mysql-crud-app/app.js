@@ -100,7 +100,6 @@ app.get('/result', (req, res) => {
         for (var i = 0;i < result.length; i++) {
             recipes.push({id: result[i].id, name: result[i].name, ingredients: result[i].ingrediants, instructions: result[i].instructions});
         }
-        //var recipes = result;
         res.render('result', {
             recipes: recipes
         });
@@ -146,9 +145,8 @@ app.get('/testsignup', (req, res) => {
         }
 		var users = [];
         for (var i = 0;i < result.length; i++) {
-            recipes.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
+            users.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
         }
-        //var recipes = result;
         res.render('dashboard', {
             users: users
         });
