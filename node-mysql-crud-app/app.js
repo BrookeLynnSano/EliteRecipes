@@ -44,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 
 // routes for the app
 app.get('/', getHomePage);
-app.get('/add', addRecipePage);
 app.get('/edit/:id', editRecipePage);
 app.get('/delete/:id', deleteRecipe);
 app.post('/add', addRecipe);
@@ -61,7 +60,12 @@ app.get('/signup', function (req, res) {
 
 //add recipe page
 app.get('/add', function (req, res) {
-    res.render('add-player');
+    let uid = req.query.uid;
+    console.log(uid)
+
+    res.render('add-player', {
+        uid: uid
+    });
 });
 
 //edit recipe page
@@ -197,6 +201,7 @@ app.get('/testdb', (req, res) => {
     console.log(id + ' ' + name + ' ' + ingredients);
 
     let query1 = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
+
     db.query(query1, input, (err, result) => {
         if (err) {
             console.log(err);
@@ -247,7 +252,7 @@ app.get('/testsignup', (req, res) => {
         var recipes = [];
 
         res.render('dashboard', {
-            user: user,
+            users: [user],
             recipes: recipes
         });
     });

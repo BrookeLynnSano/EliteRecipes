@@ -4,10 +4,6 @@
     <!-- Header -->
     <section class="jumbotron mt-4" id="share">
 
-        <% if (message != '') { %>
-            <p class="text-center text-danger"><%= message %></p>
-        <% } %>
-
         <div class="container">
             <div class="row justify-content-center">
                 <h1 class="text-center">What's cookin', good lookin'?</h1>
@@ -27,11 +23,11 @@
 
             <!-- Row 1 -->
             <div class="form-row">
-                <div class="form-group col-md-2">
-                        <input type="text" class="form-control" name="uid" id="uid" placeholder="User ID" required>
+                <div class="form-group">
+                    <input type="text" name="uid" id="uid" value="<%= uid %>" style="display:none">
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <input type="text" class="form-control" name="id" id="id" placeholder="Recipe ID" required>
                 </div>
 
