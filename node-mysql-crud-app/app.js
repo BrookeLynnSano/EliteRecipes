@@ -97,12 +97,13 @@ app.get('/recipe', function (req, res) {
 //Search item and render results page
 app.get('/result', (req, res) => {
     let search = req.query.search;
+    let uid = req.query.uid;
 
     let input = [search]
 
     console.log(search);
 
-    let query = "SELECT * FROM recipes WHERE name LIKE " + db.escape('%'+search+'%');
+    let query = "SELECT * FROM recipes WHERE name LIKE " + db.escape('%' + search + '%');
 
     db.query(query, input, (err, result) => {
         if (err) {
@@ -110,11 +111,17 @@ app.get('/result', (req, res) => {
             return res.status(500).send(err);
         }
         var recipes = [];
-        for (var i = 0;i < result.length; i++) {
-            recipes.push({id: result[i].id, name: result[i].name, ingredients: result[i].ingrediants, instructions: result[i].instructions});
+        for (var i = 0; i < result.length; i++) {
+            recipes.push({
+                id: result[i].id,
+                name: result[i].name,
+                ingredients: result[i].ingrediants,
+                instructions: result[i].instructions
+            });
         }
         res.render('result', {
-            recipes: recipes
+            recipes: recipes,
+            uid: uid
         });
 
     });
@@ -138,7 +145,7 @@ app.get('/update', (req, res) => {
             return res.status(500).send(err);
         }
         res.redirect('/');
-        });
+    });
 })
 
 // DELETE RECIPE
@@ -161,23 +168,23 @@ app.get('/delete', (req, res) => {
 
 // STAR RECIPE
 app.get('/star', (req, res) => {
+    let uid = req.query.uid;
     let id = req.query.id;
 
-    let input = [id];
-    console.log(id);
+    let input = [uid, id];
+    console.log(input);
 
-    let query = "DELETE FROM recipes WHERE id = ?";
-
+    let query = "INSERT INTO cookbook VALUES (?, ?)";
     db.query(query, input, (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).send(err);
         }
         res.redirect('/');
-    });
+        });
 })
 
-//add recipe to database
+// ADD RECIPE to database
 app.get('/testdb', (req, res) => {
     let uid = req.query.uid;
     let id = req.query.id;
@@ -196,7 +203,7 @@ app.get('/testdb', (req, res) => {
             return res.status(500).send(err);
         }
         let input2 = [uid, id];
-    let query2 = "INSERT INTO cookbook (uid, id) VALUES (?, ?)";
+        let query2 = "INSERT INTO cookbook (uid, id) VALUES (?, ?)";
         db.query(query2, input2, (err, result) => {
             if (err) {
                 console.log(err);
@@ -206,6 +213,8 @@ app.get('/testdb', (req, res) => {
         res.redirect('/');
     });
 })
+
+
 
 //add user to the DATABASE
 app.get('/testsignup', (req, res) => {
@@ -226,9 +235,16 @@ app.get('/testsignup', (req, res) => {
             console.log(err);
             return res.status(500).send(err);
         }
-		var user = {firstname: firstname, lastname: lastname, email: email, skill: skill, username: username, password: password};
+        var user = {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            skill: skill,
+            username: username,
+            password: password
+        };
 
-        var recipes =[];
+        var recipes = [];
 
         res.render('dashboard', {
             user: user,
@@ -249,49 +265,40 @@ app.get('/login', (req, res) => {
             return res.status(500).send(err);
         }
         var user = [];
-        for (var i = 0;i < result.length; i++) {
-            user.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
+        for (var i = 0; i < result.length; i++) {
+            user.push({
+                uid: result[i].uid,
+                firstname: result[i].fname,
+                lastname: result[i].lname,
+                email: result[i].email,
+                skill: result[i].skill,
+                username: result[i].username,
+                password: result[i].password
+            });
         }
-    //use the email to do a select query to get the uid for the cookbook query
 
-    //email query above ^^
         var recipes = [];
-    let query2 = "SELECT c.id, r.* FROM recipe.users u JOIN recipe.cookbook c JOIN recipe.recipes r WHERE u.uid = c.uid AND c.id = r.id AND u.email=" + db.escape(email);
-    db.query(query2, input, (err, result) => {
-        if (err){
-            console.log(err);
-            return res.status(500).send(err);
-        }
+        let query2 = "SELECT c.id, r.* FROM recipe.users u JOIN recipe.cookbook c JOIN recipe.recipes r WHERE u.uid = c.uid AND c.id = r.id AND u.email=" + db.escape(email);
+        db.query(query2, input, (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send(err);
+            }
 
-        for (var i = 0;i < result.length; i++) {
-           recipes.push({id: result[i].id, name: result[i].name, ingredients: result[i].ingrediants, instructions: result[i].instructions});
-        }
+            for (var i = 0; i < result.length; i++) {
+                recipes.push({
+                    id: result[i].id,
+                    name: result[i].name,
+                    ingredients: result[i].ingrediants,
+                    instructions: result[i].instructions
+                });
+            }
 
-        res.render('dashboard', {
-            users: user,
-            recipes: recipes
+            res.render('dashboard', {
+                users: user,
+                recipes: recipes
+            });
+
         });
-
-        });
-    });
-});
-
-
-//add recipe to user's cookbook
-app.get('/star', (req, res) => {
-    let id = req.query.id;
-
-    let input = [id]
-
-    console.log(id);
-
-    let query = "INSERT INTO cookbook (id) VALUES (?)";
-
-    db.query(query, input, (err, result) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send(err);
-        }
-        res.redirect('/dashboard');
     });
 })

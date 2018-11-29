@@ -8,22 +8,15 @@ let db = mysql.createConnection({
 
 module.exports = {
     getHomePage: (req, res) => {
-        let query = "SELECT * FROM `recipes` ORDER BY name ASC"; // query database to get all the recipes
+        let query = "SELECT AVG(temp.freq) AS ravg FROM(SELECT c.uid, COUNT(c.id) AS freq FROM cookbook c GROUP BY c.uid ) temp";
 
-        // execute query
-      //db.connect();
-        //db.query('SELECT * from recipes', function(err, rows, fields){
         db.query(query, (err, result) => {
           if (err) {
-              //  console.log('Error!!!!!!')
                 res.redirect('/');
              }
-
-             //console.log(rows);
+          console.log(result)
              res.render('index.ejs', {
-                title: "Welcome to Elite Recipes | View Recipes"
-                ,recipes: result
-
+                ravg:result
             });
         });
     },

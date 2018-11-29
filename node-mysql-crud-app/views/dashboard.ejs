@@ -4,6 +4,16 @@
 <main role="main">
     <div class="container mt-5">
 
+        <p class="lead text-center pt-5">Elite Recipes allows users to find delicious recipes. Search below!</p>
+
+        <div class="topnav align-middle">
+            <form method="get" action="/result">
+                <input type="text" name="search" id="search" placeholder="Enter Recipe Title...">
+                <input type="text" name="uid" id="uid" value="<%= users[0].uid %>" style="display:none">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+        </div>
+
         <div class="tab-content">
             <h1 class="mt-2">Profile</h1>
 

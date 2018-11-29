@@ -62,6 +62,12 @@ body a:hover {
     color: white;
 }
 
+.fotter {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
 .btn:hover {
    color: #1C2321;
 }

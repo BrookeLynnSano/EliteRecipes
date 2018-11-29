@@ -5,26 +5,32 @@
 
     <% if (recipe) { %>
         <form class="add-recipe-form" action="/update" method="get" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
+            <div class="form-row justify-items-center">
+                <div class="form-group col-md-6">
                     <label for="Name">Recipe ID</label>
                     <input type="text" class="form-control" name="id" id="id" value="<%= recipe.id %>" required readonly title="Recipe ID cannot be edited.">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="title">Recipe Name</label>
                     <input type="text" class="form-control" name="name" id="name" value="<%= recipe.name %>" required>
                 </div>
-                <div class="form-group col-md-4">
+            </div>
+            <div class="form-row justify-items-center">
+                <div class="form-group col-12">
                     <label for="ingredients">Ingredients</label>
                     <input type="text" class="form-control" name="ingredients" id="ingredients" value="<%= recipe.ingredients %>" required>
                 </div>
-                <div class="form-group col-md-4">
+            </div>
+            <div class="form-row justify-items-center">
+                <div class="form-group col-12">
                     <label for="ingredients">Instructions</label>
                     <input type="text" class="form-control" name="instructions" id="instructions" value="<%= recipe.instructions %>" required>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success float-right">Update Recipe</button>
+            <div class="form-row justify-content-center">
+                <button type="submit" class="btn btn-secondary float-right">Update Recipe</button>
+            </div>
         </form>
         <% } else { %>
         <p class="text-center">Recipe Not Found. Go <a href="/add">here</a> to add recipes.</p>

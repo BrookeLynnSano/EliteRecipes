@@ -23,7 +23,7 @@
                          <td><%= recipe.ingredients %></td>
                          <td><%= recipe.instructions %></td>
                          <td>
-                             <a href="/star?id=<%= recipe.id %>" class="btn btn-sm btn-secondary">Star</a>
+                             <a href="/star?id=<%= recipe.id %>&uid=<%= uid %>" class="btn btn-sm btn-secondary">Star</a>
                          </td>
                      </tr>
                  <% }) %>
