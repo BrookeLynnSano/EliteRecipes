@@ -158,6 +158,37 @@ app.get('/testsignup', (req, res) => {
     });
 })
 
+//user authentication
+app.get('/login', (req, res) => {
+    let email = req.query.email;
+
+    let input = [email]
+
+    let query1 = "SELECT * FROM users WHERE email=" + db.escape(email);
+
+    db.query(query1, input, (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        var user = [];
+        for (var i = 0;i < result.length; i++) {
+            user.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
+        }
+
+        //var recipes = [];
+        //for (var i = 0;i < result.length; i++) {
+        //    recipes.push({id: result[i].id, name: result[i].name, ingredients: result[i].ingrediants, instructions: result[i].instructions});
+        //}
+
+        res.render('dashboard', {
+            users: user
+            //recipes: recipes
+        });
+    });
+})
+
+
 //add recipe to user's cookbook
 app.get('/star', (req, res) => {
     let id = req.query.id;

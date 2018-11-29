@@ -3,23 +3,14 @@
 
 <main role="main">
     <div class="container mt-5">
-        <ul class="nav nav-tabs justify-content-end pt-4">
-            <li class="nav-item">
-                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                   aria-controls="profile" aria-selected="true">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cookbook-tab" data-toggle="tab" href="#cookbook" role="tab"
-                   aria-controls="cookbook" aria-selected="false">Cookbook</a>
-            </li>
-        </ul>
 
         <div class="tab-content">
             <h1 class="mt-2">Profile</h1>
 
-            <!-- Displays a table of recipes -->
+            <!-- Displays profile table -->
             <div class="container pt-4">
                 <div class="table-wrapper">
+                    <% if (users.length > 0) {%>
                     <table class="table table-hovered">
                         <thead class="thead-light">
                         <tr>
@@ -32,6 +23,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <% users.forEach((user, index) => { %>
                         <tr>
                             <th scope="row"><%= user.firstname %></th>
                             <td><%= user.lastname %></td>
@@ -40,50 +32,18 @@
                             <td><%= user.username %></td>
                             <td><%= user.password %></td>
                         </tr>
+                        <% }) %>
                         </tbody>
                     </table>
+                        <% } else { %>
+                            <p class="text-center">No user found.</p>
+                        <% } %>
 
                 </div>
                 <hr>
             </div>
 
         </div>
-    </div>
-
-    <div class="container pt-4">
-        <div class="table-wrapper">
-            <% if (recipes.length > 0) {%>
-                <table class="table table-hovered">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Ingredients</th>
-                        <th scope="col">Instructions</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% recipes.forEach((recipe, index) => { %>
-                        <tr>
-                            <th scope="row"><%= recipe.id %></th>
-                            <td><%= recipe.name %></td>
-                            <td><%= recipe.ingredients %></td>
-                            <td><%= recipe.instructions %></td>
-                            <td>
-                                <a href="/edit/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Edit</a>
-                                <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-secondary mb-2">Delete</a>
-                                <a href="/star/<%= recipe.id %>" class="btn btn-sm btn-secondary">Star</a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                    </tbody>
-                </table>
-            <% } else { %>
-                <p class="text-center">No recipes found. Go <a href="/add" >here</a> to add recipe.</p>
-            <% } %>
-        </div>
-        <hr>
     </div>
 
 </main>
