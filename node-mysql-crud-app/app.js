@@ -81,7 +81,7 @@ app.get('/recipe', function (req, res) {
 
 
 //DATABASE
-//results page from entered search item
+//Search item and render results page
 app.get('/result', (req, res) => {
     //obtain input value
     let search = req.query.search;
@@ -145,7 +145,7 @@ app.get('/testsignup', (req, res) => {
         }
 		var users = [];
         for (var i = 0;i < result.length; i++) {
-            users.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username, password: result[i].password});
+            users.push({firstname: result[i].fname, lastname: result[i].lname, username: result[i].username, email: result[i].email, skill: result[i].skill});
         }
         res.render('dashboard', {
             users: users
