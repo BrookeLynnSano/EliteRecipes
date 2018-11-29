@@ -106,3 +106,7 @@ body a:hover {
     bottom: 0;
     width: 100%;
 }
+
+.nav-tabs a:hover {
+    color: #7D98A1;
+}
