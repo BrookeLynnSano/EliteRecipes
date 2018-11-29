@@ -83,9 +83,8 @@ app.get('/recipe', function (req, res) {
 //DATABASE
 //Search item and render results page
 app.get('/result', (req, res) => {
-    //obtain input value
     let search = req.query.search;
-//array with input
+
     let input = [search]
     console.log(search);
 
@@ -114,6 +113,7 @@ app.get('/testdb', (req, res) => {
     let ingredients = req.query.ingredients;
     let instructions = req.query.instructions;
     let input = [id, name, ingredients, instructions]
+
     console.log(id + ' ' + name + ' ' + ingredients);
     let query = "INSERT INTO recipes (id, name, ingrediants, instructions) VALUES (?, ?, ?, ?)";
     db.query(query, input, (err, result) => {
@@ -145,7 +145,7 @@ app.get('/testsignup', (req, res) => {
         }
 		var users = [];
         for (var i = 0;i < result.length; i++) {
-            users.push({firstname: result[i].fname, lastname: result[i].lname, username: result[i].username, email: result[i].email, skill: result[i].skill});
+            users.push({firstname: result[i].fname, lastname: result[i].lname, email: result[i].email, skill: result[i].skill, username: result[i].username});
         }
         res.render('dashboard', {
             users: users
