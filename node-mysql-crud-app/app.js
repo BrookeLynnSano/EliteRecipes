@@ -261,8 +261,9 @@ app.get('/testsignup', (req, res) => {
 //user authentication
 app.get('/login', (req, res) => {
     let email = req.query.email;
-    let input = [email]
-    let query1 = "SELECT * FROM users WHERE email=" + db.escape(email);
+    let password = req.query.password;
+    let input = [email, password]
+    let query1 = "SELECT * FROM users WHERE email = ? AND password = ?";
 
     db.query(query1, input, (err, result) => {
         if (err) {
