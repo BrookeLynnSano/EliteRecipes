@@ -3,14 +3,24 @@
 
 <main role="main">
 
+    <% if (error) { %>
+        <div class="container">
+            <div class="row pt-5 justify-content-end">
+                <div class="row mt-4 mb-2">
+                    <h1 class="lead" style="color:red">Incorrect credentials!</h1>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
     <!-- Jumbotron -->
-    <section class="jumbotron mt-4" id="search">
+    <section class="jumbotron" id="search">
         <div class="container text-center">
 
             <img class="img-fluid mr-5" style="height: 225px" src="images/logo.png" alt="EliteRecipes"/>
             <h1 class="display-4">The future of cooking.</h1>
 
-            <div class="row">
+            <div class="row pt-2 pb-2">
                 <div class="col m-2" id="circles">
                    <img class="img-fluid rounded-circle" src="images/Family.jpeg" alt="family" />
                 </div>

@@ -258,7 +258,7 @@ app.get('/testsignup', (req, res) => {
     });
 })
 
-//user authentication
+// USER AUTHENTICATION and load dashboard
 app.get('/login', (req, res) => {
     let email = req.query.email;
     let password = req.query.password;
@@ -271,40 +271,45 @@ app.get('/login', (req, res) => {
             return res.status(500).send(err);
         }
         var user = [];
-        for (var i = 0; i < result.length; i++) {
-            user.push({
-                uid: result[i].uid,
-                firstname: result[i].fname,
-                lastname: result[i].lname,
-                email: result[i].email,
-                skill: result[i].skill,
-                username: result[i].username,
-                password: result[i].password
-            });
-        }
 
-        var recipes = [];
-        let query2 = "SELECT c.id, r.* FROM recipe.users u JOIN recipe.cookbook c JOIN recipe.recipes r WHERE u.uid = c.uid AND c.id = r.id AND u.email=" + db.escape(email);
-        db.query(query2, input, (err, result) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).send(err);
-            }
-
+        if ( result.length === 0 ) {
+            res.redirect('/?error=1');
+        } else {
             for (var i = 0; i < result.length; i++) {
-                recipes.push({
-                    id: result[i].id,
-                    name: result[i].name,
-                    ingredients: result[i].ingrediants,
-                    instructions: result[i].instructions
+                user.push({
+                    uid: result[i].uid,
+                    firstname: result[i].fname,
+                    lastname: result[i].lname,
+                    email: result[i].email,
+                    skill: result[i].skill,
+                    username: result[i].username,
+                    password: result[i].password
                 });
             }
 
-            res.render('dashboard', {
-                users: user,
-                recipes: recipes
-            });
+            var recipes = [];
+            let query2 = "SELECT c.id, r.* FROM recipe.users u JOIN recipe.cookbook c JOIN recipe.recipes r WHERE u.uid = c.uid AND c.id = r.id AND u.email=" + db.escape(email);
+            db.query(query2, input, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send(err);
+                }
 
-        });
+                for (var i = 0; i < result.length; i++) {
+                    recipes.push({
+                        id: result[i].id,
+                        name: result[i].name,
+                        ingredients: result[i].ingrediants,
+                        instructions: result[i].instructions
+                    });
+                }
+
+                res.render('dashboard', {
+                    users: user,
+                    recipes: recipes
+                });
+
+            });
+        }
     });
 })
